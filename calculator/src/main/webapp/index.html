@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Calculator</title>
+</head>
+<body>
+    <h2>Simple Calculator</h2>
+    <form action="CalculatorServlet" method="post">
+        Enter first number: <input type="text" name="num1"><br><br>
+        Enter second number: <input type="text" name="num2"><br><br>
+
+        <label>Choose operation:</label>
+        <select name="operation">
+            <option value="add">Addition (+)</option>
+            <option value="sub">Subtraction (-)</option>
+            <option value="mul">Multiplication (×)</option>
+            <option value="div">Division (÷)</option>
+        </select><br><br>
+
+        <input type="submit" value="Calculate">
+    </form>
+</body>
+</html>
