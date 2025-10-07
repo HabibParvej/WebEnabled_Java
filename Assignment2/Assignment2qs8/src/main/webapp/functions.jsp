@@ -1,38 +1,44 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
+<%
+    String xmlText = "<tag>&value</tag>";
+    request.setAttribute("xmlText", xmlText);
+%>
+
 <!DOCTYPE html>
 <html>
-<head><title>JSTL Functions</title></head>
+<head>
+    <meta charset="UTF-8">
+    <title>JSTL fn Demo</title>
+</head>
 <body>
-  <!-- Base data -->
-  <c:set var="txt" value=" Hello, World "/>
-  <c:set var="csv" value="a,b,c"/>
-  <c:set var="arr" value="${fn:split(csv, ',')}"/>
+<h2>JSTL Functions Demo</h2>
 
-  <!-- Required JSTL function demos -->
-  <p>length: ${fn:length(txt)}</p>
-  <p>trim: '${fn:trim(txt)}'</p>
-  <p>toUpperCase: ${fn:toUpperCase(txt)}</p>
-  <p>toLowerCase: ${fn:toLowerCase(txt)}</p>
+<c:set var="text" value="Hello, JSTL Functions!"/>
+<c:set var="csv" value="apple,banana,cherry"/>
+<c:set var="arr" value="${fn:split(csv, ',')}"/>
 
-  <p>contains 'World': ${fn:contains(txt, 'World')}</p>
-  <p>containsIgnoreCase 'hello': ${fn:containsIgnoreCase(txt, 'hello')}</p>
-  <p>startsWith ' He': ${fn:startsWith(txt, ' He')}</p>
-  <p>endsWith 'ld ': ${fn:endsWith(txt, 'ld ')}</p>
+<ul>
+    <li>contains: <c:out value="${fn:contains(text, 'JSTL')}"/></li>
+    <li>containsIgnoreCase: <c:out value="${fn:containsIgnoreCase(text, 'jstl')}"/></li>
+    <li>endsWith: <c:out value="${fn:endsWith(text, '!')}"/></li>
+    <li>escapeXml: <c:out value="${fn:escapeXml(xmlText)}"/></li>
+    <li>indexOf: <c:out value="${fn:indexOf(text, 'JSTL')}"/></li>
+    <li>join: <c:out value="${fn:join(arr, ' | ')}"/></li>
+    <li>length(text): <c:out value="${fn:length(text)}"/></li>
+    <li>length(array): <c:out value="${fn:length(arr)}"/></li>
+    <li>replace: <c:out value="${fn:replace(text, 'Functions', 'Tags')}"/></li>
+    <li>split count: <c:out value="${fn:length(fn:split(csv, ','))}"/></li>
+    <li>startsWith: <c:out value="${fn:startsWith(text, 'Hello')}"/></li>
+    <li>substring(7,11): <c:out value="${fn:substring(text, 7, 11)}"/></li>
+    <li>substringAfter: <c:out value="${fn:substringAfter(text, ', ')}"/></li>
+    <li>substringBefore: <c:out value="${fn:substringBefore(text, ',')}"/></li>
+    <li>toLowerCase: <c:out value="${fn:toLowerCase('AbC')}"/></li>
+    <li>toUpperCase: <c:out value="${fn:toUpperCase('AbC')}"/></li>
+    <li>trim: <c:out value="${fn:trim('  surrounded by spaces  ')}"/></li>
+</ul>
 
-  <p>indexOf 'lo': ${fn:indexOf(txt, 'lo')}</p>
-  <p>substring(1,5): ${fn:substring(txt, 1, 5)}</p>
-  <p>substringBefore ',': ${fn:substringBefore('x,y,z', ',')}</p>
-  <p>substringAfter  ',': ${fn:substringAfter('x,y,z', ',')}</p>
-
-  <p>replace 'World'→'JSP': ${fn:replace(txt, 'World', 'JSP')}</p>
-  <p>escapeXml of '&lt;b&gt;x&lt;/b&gt;': ${fn:escapeXml('<b>x</b>')}</p>
-
-  <p>split '${csv}': 
-    <c:forEach var="x" items="${arr}">${x} </c:forEach>
-  </p>
-  <p>join with '-': ${fn:join(arr, '-')}</p>
 </body>
 </html>
