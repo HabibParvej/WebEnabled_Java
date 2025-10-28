@@ -1,94 +1,88 @@
-# Siliguri Institute of Technology  
-**Master of Computer Application**  
-
-## Web Enabled JAVA Programming Lab (MCAN-394B)  
-### Assignment #1  
-
----
-
-## 📌 Questions
-
-### **Q1:**  
-Create a simple calculator application using **Servlet**.
+# 🚀 Assignment 1 – Servlets
+### 📅 Date of Submission: ——
+### 🏫 Siliguri Institute of Technology  
+**Master of Computer Application (MCA)**  
+**Subject:** Web Enabled Java Programming Lab (MCAN-394B)
 
 ---
 
-### **Q2:**  
-Create a servlet for a **login page**.  
-- If the username and password are correct, display message:  
-
+## 🧩 Overview
+This repository contains implementations of basic to advanced **Java Servlet** applications demonstrating core web concepts such as form handling, cookies, sessions, and file operations.
 
 ---
 
-### **Q3:**  
-Using **RequestDispatcher Interface**, create a Servlet that validates the password entered by the user.  
-- If the password is `"Servlet"`, forward the request to **Welcome Servlet**.  
-- Otherwise, stay on the `index.html` page and display an error message.
+## 🧠 Assignment Questions & Descriptions
+
+### **1️⃣ Calculator Servlet**
+Create a simple calculator application using Servlet.
 
 ---
 
-### **Q4:**  
-Create a servlet that uses **Cookies** to store the number of times a user has visited the servlet.
+### **2️⃣ Login Validation Servlet**
+Develop a login servlet that validates username and password.  
+- If credentials are correct → display `"Hello"` message.  
+- Otherwise → display `"Login Failed"` message.
 
 ---
 
-### **Q5:**  
-Create a servlet demonstrating:  
-- **Session creation and destruction**.  
-- Check whether the user is visiting for the first time or has visited earlier using **sessions**.
+### **3️⃣ Request Dispatcher Validation**
+Use **RequestDispatcher Interface** to validate password input.  
+- If password is `"Servlet"` → forward to **WelcomeServlet**.  
+- Else → remain on `index.html` and display an error message.
 
 ---
 
-### **Q6:**  
-Create a Servlet application to **upload and download a file**.
+### **4️⃣ Cookie Counter Servlet**
+Use **Cookies** to count the number of times a user has visited the servlet.
 
 ---
 
-### **Q7:**  
-Write a servlet application to **print the current date and time**.
+### **5️⃣ Session Tracking**
+Demonstrate **Session Creation and Destruction**.  
+Check if user is visiting for the first time or returning.
 
 ---
 
-### **Q8:**  
-Write a servlet application to establish **communication between HTML and Servlet** using a **hyperlink**.
+### **6️⃣ File Upload & Download Servlet**
+Create an application to upload and download files via Servlet.
 
 ---
 
-### **Q9:**  
-Write an application to **auto-refresh a page** in Servlet.
+### **7️⃣ Date & Time Display Servlet**
+Display current date and time using Servlet.
 
 ---
 
-### **Q10:**  
-Develop a **Servlet application** for **Email Service Registration**.  
-
-#### HTML Form Fields:
-1. First name *(required)*  
-2. Middle name *(optional)*  
-3. Last name *(required)*  
-4. Desired login *(required)*  
-5. Password *(required)*  
-6. Confirm Password *(required)*  
-7. Location *(optional)*  
-8. Education *(optional)*  
-9. Phone number *(optional)*  
-
-#### Restrictions:
-- **Names** (First, Middle, Last) → alphabets only.  
-- **Password**:  
-- Must contain alphabets.  
-- At least **one number**.  
-- At least **one special character**.  
-- Minimum **6 characters** in length.  
-- **Validation** must be done **only on the Servlet side** (no JavaScript allowed).  
-
-#### Output:
-- If all restrictions are fulfilled → show **Successful Registration** message.  
-- Else → display **appropriate error message**.
+### **8️⃣ HTML–Servlet Communication**
+Demonstrate communication between **HTML** and **Servlet** using hyperlinks.
 
 ---
 
-## 📂 Notes:
-- All projects should be implemented using **Java Servlets**.
-- Ensure proper folder structure for `WEB-INF`, `web.xml`, and class files.
-- No client-side validation — all checks must be handled in the Servlet.
+### **9️⃣ Auto Refresh Servlet**
+Develop a servlet that automatically refreshes the page at a set interval.
+
+---
+
+### **🔟 Registration Form Validation**
+Build a simple registration form with the following fields:  
+`First Name, Middle Name, Last Name, Desired Login, Password, Confirm Password, Location, Education, Phone Number`
+
+#### Validation Rules:
+- Only alphabets for names.  
+- Password must have alphabets, at least one number, one special character, and min length = 6.  
+- Validation must be done in Servlet (no JavaScript allowed).
+
+---
+
+## 🧰 Technologies Used
+- **Java Servlets**
+- **HTML/CSS**
+- **Apache Tomcat**
+- **Eclipse / NetBeans IDE**
+
+---
+
+## ⚙️ How to Run
+1. Clone this repository:  
+   ```bash
+   git clone https://github.com/<your-username>/<repo-name>
