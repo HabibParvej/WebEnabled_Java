@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Vote Counter</title>
+    <style>
+        .container {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .like-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .dislike-btn {
+            background-color: #f44336;
+            color: white;
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .count {
+            font-size: 20px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    </style>
+</h:head>
+<h:body>
+    <div class="container">
+        <h2>Like/Dislike Voting System</h2>
+        
+        <h:form>
+            <h:commandButton value="👍 Like"
+                             styleClass="like-btn"
+                             actionListener="#{voteBean.incrementLike}">
+                <f:ajax execute="@this" render="likeCount" event="click"/>
+            </h:commandButton>
+            
+            <h:outputText id="likeCount"
+                          value="Likes: #{voteBean.likeCount}"
+                          styleClass="count"/>
+            
+            <br/><br/>
+            
+            <h:commandButton value="👎 Dislike"
+                             styleClass="dislike-btn"
+                             actionListener="#{voteBean.incrementDislike}">
+                <f:ajax execute="@this" render="dislikeCount" event="click"/>
+            </h:commandButton>
+            
+            <h:outputText id="dislikeCount"
+                          value="Dislikes: #{voteBean.dislikeCount}"
+                          styleClass="count"/>
+        </h:form>
+    </div>
+</h:body>
+</html>
