@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Shopping Cart - TechShop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .back-link {
+            background-color: rgba(255,255,255,0.2);
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .back-link:hover {
+            background-color: rgba(255,255,255,0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        .page-title {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .message {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .empty-cart {
+            background: white;
+            padding: 60px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        
+        .empty-cart-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        
+        .cart-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 150px 1fr auto;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .item-image {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .item-details {
+            flex: 1;
+        }
+        
+        .item-name {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .item-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .item-price {
+            font-size: 20px;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .item-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-end;
+        }
+        
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .quantity-input {
+            width: 60px;
+            padding: 8px;
+            text-align: center;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .remove-btn {
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .remove-btn:hover {
+            background-color: #cc0000;
+        }
+        
+        .cart-summary {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 15px;
+            border-top: 2px solid #ddd;
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .checkout-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .checkout-btn:hover {
+            transform: scale(1.02);
+        }
+        
+        .clear-cart-btn {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</h:head>
+<h:body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">🛒 TechShop</div>
+            <h:form>
+                <h:commandLink action="shop" value="← Continue Shopping" styleClass="back-link" />
+            </h:form>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="page-title">Your Shopping Cart (#{cartBean.totalItems} items)</h1>
+        
+        <h:form id="cartForm">
+            <!-- Message -->
+            <h:panelGroup rendered="#{not empty cartBean.message}">
+                <div class="message">
+                    <h:outputText value="#{cartBean.message}" />
+                </div>
+            </h:panelGroup>
+            
+            <!-- Empty Cart -->
+            <h:panelGroup rendered="#{cartBean.cartEmpty}">
+                <div class="empty-cart">
+                    <div class="empty-cart-icon">🛒</div>
+                    <h2>Your cart is empty</h2>
+                    <p>Add some products to get started!</p>
+                    <h:commandLink action="shop" value="← Start Shopping" styleClass="back-link" 
+                                   style="display: inline-block; margin-top: 20px;" />
+                </div>
+            </h:panelGroup>
+            
+            <!-- Cart Items -->
+            <h:panelGroup rendered="#{not cartBean.cartEmpty}">
+                <ui:repeat value="#{cartBean.cartItems}" var="item"
+                           xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+                    <div class="cart-item">
+                        <h:graphicImage value="#{item.product.image}" 
+                                        styleClass="item-image"
+                                        alt="#{item.product.name}" />
+                        
+                        <div class="item-details">
+                            <div class="item-name">#{item.product.name}</div>
+                            <div class="item-description">#{item.product.description}</div>
+                            <div class="item-price">
+                                $<h:outputText value="#{item.product.price}">
+                                    <f:convertNumber pattern="#,##0.00" />
+                                </h:outputText>
+                                × #{item.quantity} = 
+                                $<h:outputText value="#{item.subtotal}">
+                                    <f:convertNumber pattern="#,##0.00" />
+                                </h:outputText>
+                            </div>
+                        </div>
+                        
+                        <div class="item-actions">
+                            <div class="quantity-control">
+                                <label>Qty:</label>
+                                <h:inputText value="#{item.quantity}" 
+                                             styleClass="quantity-input">
+                                    <f:ajax event="change" 
+                                            listener="#{cartBean.updateQuantity(item, item.quantity)}"
+                                            render="cartForm" />
+                                </h:inputText>
+                            </div>
+                            
+                            <h:commandButton value="🗑️ Remove" 
+                                             styleClass="remove-btn"
+                                             action="#{cartBean.removeFromCart(item)}">
+                                <f:ajax execute="@this" render="cartForm" />
+                            </h:commandButton>
+                        </div>
+                    </div>
+                </ui:repeat>
+                
+                <!-- Cart Summary -->
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Subtotal (#{cartBean.totalItems} items):</span>
+                        <span>
+                            $<h:outputText value="#{cartBean.cartTotal}">
+                                <f:convertNumber pattern="#,##0.00" />
+                            </h:outputText>
+                        </span>
+                    </div>
+                    
+                    <div class="summary-total">
+                        <span>Total:</span>
+                        <span>
+                            $<h:outputText value="#{cartBean.cartTotal}">
+                                <f:convertNumber pattern="#,##0.00" />
+                            </h:outputText>
+                        </span>
+                    </div>
+                    
+                    <h:commandButton value="🔒 Proceed to Checkout" styleClass="checkout-btn" />
+                    
+                    <h:commandButton value="Clear Cart" 
+                                     styleClass="clear-cart-btn"
+                                     action="#{cartBean.clearCart}">
+                        <f:ajax execute="@this" render="cartForm" />
+                    </h:commandButton>
+                </div>
+            </h:panelGroup>
+        </h:form>
+    </div>
+</h:body>
+</html>
