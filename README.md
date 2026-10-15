@@ -1,10 +1,12 @@
 # 🚀 Assignment 1 – Servlets
+
 ### 📅 Date of Submission: ——
 ### 🏫 Siliguri Institute of Technology  
 **Master of Computer Application (MCA)**  
 **Subject:** Web Enabled Java Programming Lab (MCAN-394B)
 
 ---
+
 
 ## 🧩 Overview
 This repository contains implementations of basic to advanced **Java Servlet** applications demonstrating core web concepts such as form handling, cookies, sessions, and file operations.
@@ -19,6 +21,7 @@ Create a simple calculator application using Servlet.
 ---
 
 ### **2️⃣ Login Validation Servlet**
+
 Develop a login servlet that validates username and password.  
 - If credentials are correct → display `"Hello"` message.  
 - Otherwise → display `"Login Failed"` message.
@@ -26,6 +29,7 @@ Develop a login servlet that validates username and password.
 ---
 
 ### **3️⃣ Request Dispatcher Validation**
+
 Use **RequestDispatcher Interface** to validate password input.  
 - If password is `"Servlet"` → forward to **WelcomeServlet**.  
 - Else → remain on `index.html` and display an error message.
@@ -33,11 +37,13 @@ Use **RequestDispatcher Interface** to validate password input.
 ---
 
 ### **4️⃣ Cookie Counter Servlet**
+
 Use **Cookies** to count the number of times a user has visited the servlet.
 
 ---
 
 ### **5️⃣ Session Tracking**
+
 Demonstrate **Session Creation and Destruction**.  
 Check if user is visiting for the first time or returning.
 
