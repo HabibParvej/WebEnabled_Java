@@ -3,6 +3,7 @@
 
 ## 📗 **README for Assignment 2 – JSP**
 
+
 ```markdown
 # 🌐 Assignment 2 – Java Server Pages (JSP)
 ### 📅 Date of Submission: 15/09/2025
@@ -13,11 +14,13 @@
 ---
 
 ## 🧩 Overview
+
 This repository contains a set of **JSP-based web applications** demonstrating JSP scripting elements, implicit objects, JSTL, session management, and database connectivity.
 
 ---
 
 ## 🧠 Assignment Questions & Descriptions
+
 
 ### **1️⃣ JSP Session Tracking with Login & Logout**
 - Input: User’s name.  
@@ -27,6 +30,7 @@ This repository contains a set of **JSP-based web applications** demonstrating J
 ---
 
 ### **2️⃣ List Browser Cookies**
+
 - Display all cookies stored in the browser on button click.
 
 ---
